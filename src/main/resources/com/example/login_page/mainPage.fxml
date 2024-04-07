@@ -7,11 +7,13 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<GridPane id="mainBackground" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -265,14 +267,29 @@
                   </VBox>
                   <VBox id="sectionBackground2" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="14" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="14" GridPane.rowSpan="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <children>
-                        <Label text="Ważne" />
-                        <Label text="11111111111111111111111111111111111111111111111" wrapText="true" />
-                        <Label text="22222" wrapText="true" />
-                        <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Dodaj" />
+                        <Label text="Ważne">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Label>
+                        <Label id="importantList" maxWidth="1.7976931348623157E308" text="ważne1" wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                           </VBox.margin></Label>
+                        <Label id="importantList" maxWidth="1.7976931348623157E308" text="ważne2" wrapText="true">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                           </VBox.margin></Label>
+                        <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Dodaj">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
+                           </VBox.margin></Button>
                      </children>
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </GridPane.margin>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
                   </VBox>
                </children>
                <padding>
@@ -292,24 +309,41 @@
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </GridPane>
-      <StackPane id="sectionBackground1" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.rowSpan="4">
+      <StackPane id="detailsButtonBackground" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.rowSpan="4">
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Szczegóły przedmiotu" wrapText="true" />
+            <Button id="detailsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Szczegóły przedmiotu" wrapText="true" />
          </children>
+         <GridPane.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </StackPane>
+      <Pane id="sectionBackground1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
-      </StackPane>
+      </Pane>
       <HBox id="sectionBackground1" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="22" GridPane.columnSpan="10" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="50.0" text="Motyw" HBox.hgrow="ALWAYS" />
-            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="150.0" text="Imię użytkownika / wyloguj się" HBox.hgrow="ALWAYS" />
+            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="50.0" text="Motyw" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </HBox.margin></Button>
+            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="150.0" text="Imię użytkownika / wyloguj się" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
          </children>
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
+         <padding>
+            <Insets bottom="5.0" top="5.0" />
+         </padding>
       </HBox>
-      <GridPane id="sectionBackground1" GridPane.columnIndex="14" GridPane.columnSpan="18" GridPane.rowIndex="4" GridPane.rowSpan="22">
+      <GridPane id="detailsBackground" GridPane.columnIndex="14" GridPane.columnSpan="18" GridPane.rowIndex="4" GridPane.rowSpan="22">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -382,10 +416,16 @@
                <children>
                   <Label text="Notatki:" />
                   <TextArea prefHeight="60.0" prefWidth="200.0" />
-                  <Button id="mainButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Zapisz" VBox.vgrow="ALWAYS" />
+                  <Button id="mainButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Zapisz" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
+                     </VBox.margin></Button>
                </children>
             </VBox>
-            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Edytuj dane" GridPane.columnSpan="23" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="13" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Edytuj dane" GridPane.columnSpan="23" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="13" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
+               </GridPane.margin></Button>
          </children>
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

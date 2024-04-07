@@ -13,6 +13,8 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader loginLoader = new FXMLLoader(Main.class.getResource("loginPage.fxml"));
         Scene loginScene = new Scene(loginLoader.load(), 600, 480);
+        String css = Main.class.getResource("style.css").toExternalForm();
+        loginScene.getStylesheets().add(css);
         stage.setTitle("Planer studenta");
         stage.setScene(loginScene);
         stage.show();
