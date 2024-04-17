@@ -11,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -38,24 +40,24 @@ public class Login {
     private Scene scene;
     private Parent root;
     public void userLogin(ActionEvent event)throws IOException{
-        checkLogin(event);
+        checkLogin();
     }
 
-    private void checkLogin(ActionEvent event)throws IOException{
-        MainPage m = new MainPage();
+    public void keyLogin(KeyEvent event) throws IOException {
+        if (event.getCode() == KeyCode.ENTER) {
+            checkLogin();
+        }
+    }
+
+    private void checkLogin()throws IOException{
 
         if (username.getText().equals(USERNAME) && password.getText().equals(PASSWORD)){
             wrongLogin.setText("Poprawnie zalogowany!");
-            //m.changeScene("mainPage.fxml");
             root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
-            stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-            scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-30);
-            String css = Main.class.getResource("style.css").toExternalForm();
-            scene.getStylesheets().add(css);
-            stage.setScene(scene);
-            stage.setMaximized(true);
-            stage.show();
+            stage = (Stage) (button.getScene().getWindow());
+            MainPage m = new MainPage();
+            m.changeScene(root, stage);
+
 
         }else if(username.getText().isEmpty() && password.getText().isEmpty()) {
             wrongLogin.setText("Wpisz brakujące dane");

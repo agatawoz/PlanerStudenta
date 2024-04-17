@@ -1,3 +1,4 @@
+
 /*
 .button {
     -fx-background-color:  #555555;
@@ -101,8 +102,17 @@
     -fx-background-color: #808080;
 }
 
+
 .text-area{
-    -fx-background-radius: 10px;
-    -fx-background-color: #555555;
-    -fx-control-inner-background: #666666;
+    -fx-background-color: #00000000;
+    -fx-control-inner-background: #00000000;
+}
+
+.text-area .content {
+    -fx-background-color: #606060;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0px;
+}
+.text-area:focused .content {
+    -fx-background-color: #666666;
 }
