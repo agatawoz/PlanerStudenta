@@ -41,14 +41,18 @@
 }
 
 #dayButton {
-    -fx-background-color: #777777;
+    -fx-background-color: #444444;
     -fx-background-radius: 10px;
     -fx-background-insets: 0px;
     -fx-text-fill: #bababa;
 }
 
 #dayButton:hover{
-    -fx-background-color: #707070;
+    -fx-background-color: #404040;
+}
+
+#calendarBackground{
+    -fx-background-color: rgba(0, 0, 0, 0.5);
 }
 
 #planList {
@@ -59,6 +63,7 @@
 #planList:hover {
     -fx-background-color: #808080;
 }
+
 
 #mainButton{
     -fx-background-color:  #444444;

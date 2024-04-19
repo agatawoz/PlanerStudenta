@@ -39,7 +39,7 @@ public class Login {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    public void userLogin(ActionEvent event)throws IOException{
+    public void userLogin()throws IOException{
         checkLogin();
     }
 
