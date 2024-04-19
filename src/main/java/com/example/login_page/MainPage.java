@@ -1,15 +1,12 @@
 package com.example.login_page;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
@@ -23,7 +20,7 @@ public class MainPage {
     private Scene scene;
     private Parent root;
 
-    private boolean isCalendarShown = false;
+    private static boolean isCalendarShown = false;
 
     @FXML
     private Button dayButton;
@@ -35,14 +32,14 @@ public class MainPage {
     private StackPane calendarSection;
     @FXML
     private Pane calendarBackground;
+    @FXML
+    private Button logoutButton;
 
-    public void changeScene(Parent root, Stage stage) {
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-30);
+    public static void changeScene(Parent root, Stage stage, Scene scene) {
         String css = Main.class.getResource("style.css").toExternalForm();
         scene.getStylesheets().add(css);
         stage.setScene(scene);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.show();
     }
 
@@ -67,5 +64,13 @@ public class MainPage {
             calendarBackground.setVisible(false);
             isCalendarShown = false;
         }
+    }
+
+    public void logout () throws IOException {
+        root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
+        stage = (Stage) (logoutButton.getScene().getWindow());
+        stage.setMaximized(false);
+        Scene scene = new Scene(root, 600, 480);
+        changeScene(root, stage, scene);
     }
 }

@@ -55,8 +55,11 @@ public class Login {
             wrongLogin.setText("Poprawnie zalogowany!");
             root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
             stage = (Stage) (button.getScene().getWindow());
-            MainPage m = new MainPage();
-            m.changeScene(root, stage);
+            stage.setMaximized(true);
+            Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+            Scene scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-30);
+            //MainPage m = new MainPage();
+            MainPage.changeScene(root, stage, scene);
 
 
         }else if(username.getText().isEmpty() && password.getText().isEmpty()) {
