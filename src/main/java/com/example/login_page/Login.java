@@ -50,19 +50,23 @@ public class Login {
     }
 
     private void checkLogin()throws IOException{
-
-        if (username.getText().equals(USERNAME) && password.getText().equals(PASSWORD)){
+        String userLogin = username.getText();
+        String userPassword = password.getText();
+        boolean dbResult = DatabaseManager.checkLoginData(userLogin, userPassword);
+        if (dbResult){
             wrongLogin.setText("Poprawnie zalogowany!");
+
+
             root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
             stage = (Stage) (button.getScene().getWindow());
             stage.setMaximized(true);
             Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-            Scene scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-30);
+            Scene scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-20);
             //MainPage m = new MainPage();
             MainPage.changeScene(root, stage, scene);
 
 
-        }else if(username.getText().isEmpty() && password.getText().isEmpty()) {
+        }else if(userLogin.isEmpty() && userPassword.isEmpty()) {
             wrongLogin.setText("Wpisz brakujące dane");
         }
         else{

@@ -55,7 +55,7 @@ public class MainPage {
             isCalendarShown = true;
         }
         else {
-            dayButton.setStyle("-fx-background-color: #404040;");
+            dayButton.setStyle("-fx-background-color: #444444;");
             dayButton.setOnMouseEntered(event -> dayButton.setStyle("-fx-background-color: #404040;"));
             dayButton.setOnMouseExited(event -> dayButton.setStyle("-fx-background-color: #444444;"));
             calendarSection.setVisible(false);
