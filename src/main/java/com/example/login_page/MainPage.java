@@ -13,6 +13,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class MainPage {
 
@@ -70,7 +71,11 @@ public class MainPage {
         root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
         stage = (Stage) (logoutButton.getScene().getWindow());
         stage.setMaximized(false);
-        Scene scene = new Scene(root, 600, 480);
+        Scene scene = new Scene(root, 800, 500);
         changeScene(root, stage, scene);
+    }
+
+    static boolean updateSubjects(LocalDate date){
+        return true;
     }
 }

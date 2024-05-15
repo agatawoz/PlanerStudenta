@@ -1,6 +1,7 @@
 package com.example.login_page;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public  class DatabaseManager {
     static String url = "jdbc:mysql://localhost:3306/planner";
@@ -12,7 +13,7 @@ public  class DatabaseManager {
     static void createDBConnection (){
         try {
             connection = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected to the database!");
+            System.out.println("Connected to the database");
 
         } catch (SQLException e) {
             System.out.println("Error while connecting to database");
@@ -33,5 +34,6 @@ public  class DatabaseManager {
             return false;
         }
     }
+
 
 }

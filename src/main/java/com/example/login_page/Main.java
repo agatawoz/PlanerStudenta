@@ -19,7 +19,7 @@ public class Main extends Application {
         //FXMLLoader loginLoader = new FXMLLoader(Main.class.getResource("loginPage.fxml"));
         //Parent root = loginLoader.load();
         Parent root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
-        Scene loginScene = new Scene(root, 600, 480);
+        Scene loginScene = new Scene(root, 800, 500);
         stage.setTitle("Planer studenta");
         //stage.setScene(loginScene);
         //stage.show();

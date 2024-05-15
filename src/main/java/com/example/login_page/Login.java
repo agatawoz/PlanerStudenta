@@ -20,9 +20,6 @@ import java.io.IOException;
 
 public class Login {
 
-    private final String USERNAME = "agata";
-    private final String PASSWORD = "123";
-
     public Login(){
 
     }
