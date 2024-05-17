@@ -16,14 +16,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        //FXMLLoader loginLoader = new FXMLLoader(Main.class.getResource("loginPage.fxml"));
-        //Parent root = loginLoader.load();
-        Parent root = FXMLLoader.load(getClass().getResource("loginPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("loginPage.fxml"));
+        Parent root = loader.load();
         Scene loginScene = new Scene(root, 800, 500);
         stage.setTitle("Planer studenta");
-        //stage.setScene(loginScene);
-        //stage.show();
-        MainPage.changeScene(root, stage, loginScene);
+        Login login = loader.getController();
+        login.changeScene(root, stage, loginScene);
     }
 
     public static void main(String[] args) {

@@ -53,14 +53,16 @@ public class Login {
         if (dbResult){
             wrongLogin.setText("Poprawnie zalogowany!");
 
-
-            root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("mainPage.fxml"));
+            root = loader.load();
+            //root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
             stage = (Stage) (button.getScene().getWindow());
             stage.setMaximized(true);
             Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
             Scene scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-20);
-            //MainPage m = new MainPage();
-            MainPage.changeScene(root, stage, scene);
+            MainPage mainPage = loader.getController();
+            mainPage.updateSubjects(userLogin, null);
+            changeScene(root, stage, scene);
 
 
         }else if(userLogin.isEmpty() && userPassword.isEmpty()) {
@@ -69,5 +71,13 @@ public class Login {
         else{
             wrongLogin.setText("Nieprawidłowa nazwa użytkownika lub hasło!");
         }
+    }
+
+    public void changeScene(Parent root, Stage stage, Scene scene) {
+        String css = Main.class.getResource("style.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        //stage.setMaximized(true);
+        stage.show();
     }
 }
