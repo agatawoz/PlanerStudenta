@@ -2,8 +2,13 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -77,41 +82,51 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Pane id="sectionBackground1" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" style="-fx-opacity: 0.2;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <image>
+            <Image url="@../../../../../../../../../../UZ/Projekt%20io/448303999_1450617165580436_2532191170332720778_n-TSngez4SN-transformed.jpeg" />
+         </image>
+      </ImageView>
+      <Pane id="sectionBackground1" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
       </Pane>
-      <StackPane id="detailsButtonBackground" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.rowSpan="4">
+      <StackPane id="detailsButtonBackground" prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.rowSpan="5">
          <children>
-            <Button id="detailsButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Szczegóły przedmiotu" wrapText="true" />
+            <Button id="detailsButton" fx:id="detailsButton" lineSpacing="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Szczegóły przedmiotu" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets bottom="5.0" />
+               </StackPane.margin></Button>
          </children>
          <GridPane.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
-         <padding>
-            <Insets bottom="10.0" top="10.0" />
-         </padding>
       </StackPane>
-      <HBox id="sectionBackground1" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="22" GridPane.columnSpan="10" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <GridPane GridPane.columnIndex="27" GridPane.columnSpan="5" GridPane.rowSpan="5">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="50.0" text="Motyw" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets left="5.0" right="5.0" />
-               </HBox.margin></Button>
-            <Button id="mainButton" fx:id="logoutButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logout" prefWidth="150.0" text="Imię użytkownika / wyloguj się" HBox.hgrow="ALWAYS">
-               <HBox.margin>
-                  <Insets right="5.0" />
-               </HBox.margin></Button>
+            <Button id="accountButton" fx:id="logoutButton" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#showLogoutGridPane" pickOnBounds="false" prefHeight="90.0" prefWidth="90.0" text="A" textOverrun="CLIP" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <font>
+                  <Font size="39.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" right="15.0" top="5.0" />
+               </GridPane.margin></Button>
          </children>
          <GridPane.margin>
-            <Insets left="10.0" right="10.0" top="10.0" />
+            <Insets />
          </GridPane.margin>
-         <padding>
-            <Insets bottom="5.0" top="5.0" />
-         </padding>
-      </HBox>
-      <GridPane id="detailsBackground" GridPane.columnIndex="14" GridPane.columnSpan="18" GridPane.rowIndex="4" GridPane.rowSpan="22">
+      </GridPane>
+      <GridPane id="detailsBackground" GridPane.columnIndex="14" GridPane.columnSpan="18" GridPane.rowIndex="5" GridPane.rowSpan="21">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -162,53 +177,195 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="23" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+            <VBox id="sectionBackground2" fx:id="instructorVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="23" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="6" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                <children>
-                  <Label text="Prowadzący: " />
-                  <Label text="Dane kontaktowe:" />
-                  <Label text="Mail: " />
-                  <Label text="Pokój: " />
+                  <Label fx:id="instructorName" text="Prowadzący: " textFill="#bababa">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding></Label>
+                  <Label text="Dane kontaktowe:" textFill="#bababa" />
+                  <Label fx:id="instructorMail" text="Mail: " textFill="#bababa" />
+                  <Label fx:id="instructorRoom" text="Pokój: " textFill="#bababa" />
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </VBox>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="23" GridPane.rowIndex="6" GridPane.rowSpan="6">
+            <GridPane id="sectionBackground2" fx:id="gradesGridPane" GridPane.columnSpan="23" GridPane.rowIndex="6" GridPane.rowSpan="9">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Label text="Sposób zaliczenia: " />
-                  <Label text="Oceny: " />
-                  <Label text="Kolokwium 1: " />
-                  <Label text="Kolokwium 2: " />
-                  <Label text="Średnia (przedmiot):  " />
-                  <Label text="Średnia (wszystkie):  " />
+                  <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Oceny: " textFill="#bababa">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                           <content>
+                              <VBox fx:id="gradesVBox">
+                                 <children>
+                                    <GridPane id="eventList" gridLinesVisible="true">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Kolokwium 1" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Label text="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="50.0" top="10.0" />
+                     </GridPane.margin>
+                  </VBox>
+                  <GridPane GridPane.columnIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane id="eventList" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Średnia ze wszystkich">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="allAverageLabel" alignment="CENTER" minHeight="30.0" minWidth="30.0" text="5.0" GridPane.columnIndex="1" />
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="7.5" />
+                           </GridPane.margin>
+                        </GridPane>
+                        <GridPane id="eventList" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="40.0" minWidth="10.0" prefWidth="40.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Średnia z przedmiotu">
+                                 <GridPane.margin>
+                                    <Insets left="10.0" />
+                                 </GridPane.margin>
+                              </Label>
+                              <Label fx:id="averageLabel" alignment="CENTER" minHeight="30.0" minWidth="30.0" text="5.0" textAlignment="CENTER" GridPane.columnIndex="1" />
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" top="1.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.4" left="50.0" right="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
                </GridPane.margin>
-            </VBox>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="23" GridPane.rowIndex="16" GridPane.rowSpan="6">
+            </GridPane>
+            <VBox fx:id="notesVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="23" GridPane.rowIndex="14" GridPane.rowSpan="8">
                <children>
-                  <Label text="Notatki:" />
-                  <TextArea prefHeight="60.0" prefWidth="200.0" wrapText="true">
+                  <Label text="Notatki:" textFill="#bababa" />
+                  <TextArea fx:id="notesTextArea" prefWidth="200.0" wrapText="true">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin></TextArea>
-                  <Button id="mainButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Zapisz" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
-                     </VBox.margin></Button>
+                  <HBox maxHeight="100.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button id="mainButton" fx:id="saveNotesButton" maxHeight="1.7976931348623157E308" maxWidth="100.0" minHeight="30.0" mnemonicParsing="false" onAction="#saveNotes" prefWidth="100.0" text="Zapisz">
+                           <HBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Label fx:id="saveNotesLabel" text="Pomyślnie zapisano" textFill="#bababa" visible="false">
+                           <HBox.margin>
+                              <Insets left="10.0" top="16.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
                <GridPane.margin>
-                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </GridPane.margin>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </VBox>
-            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Edytuj dane" GridPane.columnSpan="23" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="13" GridPane.rowSpan="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-               <GridPane.margin>
-                  <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
-               </GridPane.margin></Button>
          </children>
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" />
+         </GridPane.margin>
+      </GridPane>
+      <GridPane id="logoutBackground" fx:id="logoutGridPane" GridPane.columnIndex="27" GridPane.columnSpan="5" GridPane.rowIndex="4" GridPane.rowSpan="6">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Motyw: jasny" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="2.5" left="5.0" right="5.0" top="5.0" />
+               </GridPane.margin>
+            </Button>
+            <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logout" text="Wyloguj się" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="2.5" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="usernameLabel" text="username" textFill="#dddddd" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <GridPane.margin>
+            <Insets right="10.0" top="10.0" />
          </GridPane.margin>
       </GridPane>
       <Pane id="calendarBackground" fx:id="calendarBackground" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#showCalendar" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647" />
@@ -300,7 +457,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox id="sectionBackground2" fx:id="planSection" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="14" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="14" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <VBox id="sectionBackground2" fx:id="planSection" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="14" GridPane.rowSpan="18">
                      <children>
                         <GridPane>
                           <columnConstraints>
@@ -314,86 +471,87 @@
                             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label text="Od" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label text="Przedmiot" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label text="Do" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label text="Rodzaj" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label text="Miejsce" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Label text="Od" textFill="#bababa" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Label text="Przedmiot" textFill="#bababa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Label text="Do" textFill="#bababa" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Label text="Rodzaj" textFill="#bababa" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                              <Label text="Miejsce" textFill="#bababa" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
                            </children>
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </VBox.margin>
                         </GridPane>
-                        <GridPane id="planList" fx:id="subject0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="15.0" prefWidth="20.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="200.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="15.0" prefWidth="20.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                           </rowConstraints>
-                           <children>
-                              <Label fx:id="subject0_startTime" text="7:30" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label fx:id="subject0_name" text="Programowanie współbieżne i rozproszone" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label fx:id="subject0_endTime" text="9:00" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label fx:id="subject0_type" text="Laboratorium" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                              <Label fx:id="subject0_place" text="219 A-2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-                           </children>
+                        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+                           <content>
+                              <VBox fx:id="seVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="100.0">
+                                 <children>
+                                    <GridPane id="planList" gridLinesVisible="true" maxWidth="1.7976931348623157E308" minHeight="30.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="15.0" prefWidth="20.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="200.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="15.0" prefWidth="20.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="7:30" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                          <Label text="Programowanie współbieżne i rozproszone" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                          <Label text="9:00" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                          <Label text="Laboratorium" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                          <Label text="219 A-2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <GridPane id="planList" minHeight="30.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="15.0" prefWidth="20.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="200.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="15.0" prefWidth="20.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="9:00" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+                                          <Label text="importantEvent" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                             <GridPane.margin>
+                                                <Insets />
+                                             </GridPane.margin>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </content>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="10.0" right="10.0" />
+                              <Insets />
                            </VBox.margin>
-                        </GridPane>
-                        <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Dodaj przedmiot">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
-                           </VBox.margin>
-                        </Button>
+                        </ScrollPane>
                      </children>
+                  </VBox>
+                  <Button id="mainButton" fx:id="manageSubjectsButton" maxHeight="20.0" maxWidth="200.0" minHeight="30.0" mnemonicParsing="false" onAction="#showAllSubjectsSection" pickOnBounds="false" text="Zarządzaj przedmiotami" GridPane.columnSpan="9" GridPane.rowIndex="18" GridPane.rowSpan="2">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin></Button>
+                  <Button id="mainButton" fx:id="manageEventsButton" maxHeight="20.0" maxWidth="200.0" minHeight="30.0" mnemonicParsing="false" onAction="#showEventsWindow" pickOnBounds="false" text="Zarządzaj wydarzeniami" GridPane.columnSpan="9" GridPane.rowIndex="20">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+                  <StackPane id="sectionBackground2" fx:id="calendarSection" prefHeight="150.0" prefWidth="200.0" visible="false" GridPane.columnSpan="14" GridPane.rowSpan="20">
                      <GridPane.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" />
                      </GridPane.margin>
-                  </VBox>
-                  <VBox id="sectionBackground2" fx:id="importantSection" prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="14" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="14" GridPane.rowSpan="8" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-                     <children>
-                        <Label text="Ważne">
-                           <font>
-                              <Font size="20.0" />
-                           </font></Label>
-                        <Label id="importantList" maxWidth="1.7976931348623157E308" text="ważne1" wrapText="true">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" />
-                           </VBox.margin></Label>
-                        <Label id="importantList" maxWidth="1.7976931348623157E308" text="ważne2" wrapText="true">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" />
-                           </VBox.margin></Label>
-                        <Label id="importantList" maxWidth="1.7976931348623157E308" text="ważne3" wrapText="true">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Dodaj">
-                           <VBox.margin>
-                              <Insets bottom="5.0" left="100.0" right="100.0" top="5.0" />
-                           </VBox.margin></Button>
-                     </children>
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </GridPane.margin>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <StackPane id="sectionBackground2" fx:id="calendarSection" prefHeight="150.0" prefWidth="200.0" visible="false" GridPane.columnSpan="14" GridPane.rowSpan="18">
-                     <GridPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" />
-                     </GridPane.margin>
-                     <children>
-                        <Label text="Kalendarz" />
-                     </children>
                   </StackPane>
                </children>
                <padding>
@@ -402,7 +560,10 @@
             </GridPane>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnSpan="14" GridPane.rowSpan="4">
                <children>
-                  <Button id="dayButton" fx:id="dayButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showCalendar" text="Czwartek, 04 kwietnia 2024" />
+                  <Button id="dayButton" fx:id="dayButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showCalendar" text="Czwartek, 04 kwietnia 2024">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -410,49 +571,712 @@
             </StackPane>
          </children>
          <GridPane.margin>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="10.0" top="10.0" />
          </GridPane.margin>
       </GridPane>
-      <Pane id="calendarBackground" fx:id="calendarBackground1" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647" />
-      <GridPane id="sectionBackground1" visible="false" GridPane.columnIndex="8" GridPane.columnSpan="16" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="6" GridPane.rowSpan="14" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <Pane id="calendarBackground" fx:id="allSubjectsBackground" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#showAllSubjectsSection" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647" />
+      <GridPane id="sectionBackground1" fx:id="subjectsControlGridPane" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="18" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.rowSpan="16" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="50.0" valignment="CENTER" />
+          <RowConstraints maxHeight="50.0" minHeight="10.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
+            <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label contentDisplay="CENTER" text="Zarządzaj przedmiotami" textAlignment="CENTER" textFill="#bababa" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </GridPane.margin>
+            </Label>
+            <GridPane id="sectionBackground2" fx:id="allSubjectsGridPane" GridPane.columnSpan="4" GridPane.rowIndex="1" GridPane.rowSpan="4">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2" GridPane.rowSpan="2">
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="30.0" prefWidth="30.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="20.0" prefWidth="20.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label text="Przedmioty" textFill="#bababa" GridPane.halignment="LEFT" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <GridPane.margin>
+                                    <Insets left="20.0" />
+                                 </GridPane.margin>
+                              </Label>
+                           </children>
+                        </GridPane>
+                        <ScrollPane fx:id="allSubjectsScrollPane" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <content>
+                              <VBox fx:id="allSubjectsVBox" maxHeight="1.7976931348623157E308" prefWidth="100.0">
+                                 <children>
+                                    <GridPane id="eventList">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="30.0" prefWidth="30.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="20.0" prefWidth="20.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Elementy sztucznej inteligencji - Wykład (Hryhorii Shevchenko)" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Button id="mainButton" mnemonicParsing="false" pickOnBounds="false" text="Edytuj informacje" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Button id="mainButton" mnemonicParsing="false" pickOnBounds="false" text="Usuń przedmiot" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                       </children>
+                                    </GridPane>
+                                    <GridPane id="eventList">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="30.0" prefWidth="30.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="20.0" prefWidth="20.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Elementy sztucznej inteligencji - Wykład" GridPane.halignment="LEFT" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                             <GridPane.margin>
+                                                <Insets left="10.0" />
+                                             </GridPane.margin>
+                                          </Label>
+                                          <Button id="mainButton" mnemonicParsing="false" pickOnBounds="false" text="Edytuj informacje" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <Button id="mainButton" mnemonicParsing="false" pickOnBounds="false" text="Usuń przedmiot" visible="false" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.valignment="CENTER" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="10.0" right="10.0" />
+                                       </VBox.margin>
+                                    </GridPane>
+                                 </children>
+                              </VBox>
+                           </content>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+                  <GridPane GridPane.columnSpan="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="350.0" minWidth="10.0" prefWidth="50.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="50.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane id="eventList" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints minWidth="10.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="10.0" />
+                           </GridPane.margin>
+                           <children>
+                              <TextField fx:id="addSubjectTextField" promptText="Elementy sztucznej inteligencji" GridPane.hgrow="ALWAYS">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <ComboBox fx:id="createSubjectComboBox" maxWidth="1.7976931348623157E308" prefWidth="120.0" visibleRowCount="5" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </ComboBox>
+                           </children>
+                        </GridPane>
+                        <Button id="mainButton" fx:id="addSubjectButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#addSubject" text="Dodaj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                           <GridPane.margin>
+                              <Insets bottom="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                           <children>
+                              <Label fx:id="addSubjectLabel" maxWidth="1.7976931348623157E308" text="Nie podano wszystkich wartości." textFill="#bababa" visible="false" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="6.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="70.0" minWidth="70.0" mnemonicParsing="false" text="Importuj">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="20.0" right="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </GridPane>
+            <GridPane fx:id="editWindowGridPane" visible="false" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="4" GridPane.valignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane id="sectionBackground2" GridPane.columnSpan="4" GridPane.rowSpan="2">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="130.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Rodzaj: " textFill="#bababa">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <ComboBox fx:id="subjectTypeComboBox" onAction="#saveSubjectInfo" prefWidth="150.0" visibleRowCount="5">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </ComboBox>
+                              <Label text="Mail: " textFill="#bababa">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="mailTextField" alignment="CENTER" text="hryhoriishevchenko.mail@gmail.com" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button id="mainButton" fx:id="saveMailButton" mnemonicParsing="false" onAction="#saveSubjectInfo" text="+">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label text="Pokój: " textFill="#bababa">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="roomTextField" alignment="CENTER" maxWidth="100.0" text="ds 2" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button id="mainButton" fx:id="saveRoomButton" mnemonicParsing="false" onAction="#saveSubjectInfo" text="+" textOverrun="CLIP">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <children>
+                              <Label text="Prowadzący: " textFill="#bababa">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="instructorNameTextField" alignment="CENTER" text="Hryhorii Shevchenko" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button id="mainButton" fx:id="saveInstructorButton" mnemonicParsing="false" onAction="#saveSubjectInfo" text="+">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <children>
+                              <Label text="Nazwa: " textFill="#bababa">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField fx:id="subjectNameTextField" alignment="CENTER" text="Programowanie współbieżne i rozproszone" HBox.hgrow="ALWAYS">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Button id="mainButton" fx:id="saveNameButton" mnemonicParsing="false" onAction="#saveSubjectInfo" text="+">
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
+                  <GridPane id="sectionBackground2" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="3">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane id="eventList" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="dateTextField" promptText="Data/dzień...">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="startTimeTextField" promptText="00:00" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="endTimeTextField" promptText="00:00" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="placeTextField" promptText="115 A-2" GridPane.columnIndex="3">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2">
+                           <children>
+                              <GridPane maxWidth="1.7976931348623157E308">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Data/dzień" textFill="#bababa" GridPane.halignment="CENTER" />
+                                    <Label text="Od" textFill="#bababa" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                    <Label text="Do" textFill="#bababa" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                    <Label text="Miejsce" textFill="#bababa" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                              <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+                                 <content>
+                                    <VBox fx:id="editDateVBox">
+                                       <children>
+                                          <GridPane id="eventList">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="30.05.2024" GridPane.halignment="CENTER" />
+                                                <Label text="11:00" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                <Label text="12:30" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                                <Label text="115 A-2" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                                <Button id="mainButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Usuń" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </GridPane>
+                                          <GridPane id="eventList">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="20.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="01.06.2024" GridPane.halignment="CENTER">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label text="12:45" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                <Label text="14:15" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                                <Label text="115 A-2" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Button id="mainButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Usuń" visible="false" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                   <GridPane.margin>
+                                                      <Insets />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="mainButton" mnemonicParsing="false" onAction="#addSubjectDate" text="Dodaj datę">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="addDateLabel" text="Niepoprawny format daty. " textFill="#bababa" visible="false">
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
+                  <GridPane id="sectionBackground2" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="3">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <GridPane id="eventList" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <TextField fx:id="gradeNameTextField" promptText="Nazwa oceny">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="valueTextField" promptText="Ocena" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                           <GridPane.margin>
+                              <Insets bottom="5.0" left="10.0" right="10.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                        <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnSpan="2">
+                           <children>
+                              <GridPane maxWidth="1.7976931348623157E308">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label text="Nazwa" textFill="#bababa" GridPane.halignment="CENTER" />
+                                    <Label text="Ocena" textFill="#bababa" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                              <ScrollPane fitToWidth="true">
+                                 <content>
+                                    <VBox fx:id="editGradeVBox">
+                                       <children>
+                                          <GridPane id="eventList">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="Kolokwium nr 1" GridPane.halignment="CENTER" />
+                                                <Label text="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                <Button id="mainButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Usuń" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="90.0" right="5.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </GridPane>
+                                          <GridPane id="eventList">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="Kolokwium nr 1" GridPane.halignment="CENTER" />
+                                                <Label text="5.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                <Button id="mainButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Usuń" visible="false" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                                                   <GridPane.margin>
+                                                      <Insets bottom="5.0" left="90.0" right="5.0" top="5.0" />
+                                                   </GridPane.margin>
+                                                </Button>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="10.0" right="10.0" />
+                                             </VBox.margin>
+                                          </GridPane>
+                                       </children>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                           <children>
+                              <Button id="mainButton" fx:id="addGradeButton" mnemonicParsing="false" onAction="#addGrade" text="Dodaj ocenę">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" top="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Label fx:id="addGradeLabel" text="Nie podano oceny." textFill="#bababa" visible="false">
+                                 <HBox.margin>
+                                    <Insets left="5.0" top="9.0" />
+                                 </HBox.margin>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
+               </children>
+            </GridPane>
+            <Button id="mainButton" alignment="CENTER" maxHeight="50.0" maxWidth="70.0" mnemonicParsing="false" onAction="#goBack" text="Wstecz" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </GridPane.margin>
+            </Button>
+         </children>
+      </GridPane>
+      <Pane id="calendarBackground" fx:id="eventsBackground" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#showEventsWindow" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647" />
+      <GridPane id="sectionBackground1" fx:id="eventsWindow" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="18" GridPane.rowIndex="5" GridPane.rowSpan="16">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="50.0" valignment="CENTER" />
-          <RowConstraints minHeight="10.0" vgrow="ALWAYS" />
-          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label contentDisplay="CENTER" text="Dodaj przedmiot" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <GridPane id="sectionBackground2" GridPane.columnSpan="3" GridPane.rowIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="40.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="40.0" minHeight="40.0" prefHeight="40.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ScrollPane fitToWidth="true" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <content>
+                        <VBox fx:id="eventsVBox">
+                           <children>
+                              <GridPane id="eventList">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="14.06.2024 | Wydarzenie 1 | Info o wydarzeniuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu" GridPane.columnSpan="2">
+                                       <GridPane.margin>
+                                          <Insets left="10.0" right="10.0" />
+                                       </GridPane.margin>
+                                    </Label>
+                                    <Button id="mainButton" mnemonicParsing="false" text="Usuń wydarzenie" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+                                       <GridPane.margin>
+                                          <Insets right="10.0" />
+                                       </GridPane.margin>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                           </children>
+                        </VBox>
+                     </content>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" />
+                     </GridPane.margin>
+                  </ScrollPane>
+                  <Label text="Wydarzenia" textFill="#bababa" GridPane.halignment="LEFT" GridPane.valignment="BOTTOM">
+                     <GridPane.margin>
+                        <Insets bottom="5.0" left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <GridPane GridPane.columnSpan="2" GridPane.rowIndex="2">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="70.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane id="eventList">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="120.0" prefWidth="120.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="110.0" prefWidth="110.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="eventDateTextField" promptText="Data lub dzień...">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="eventTimeTextField" promptText="12:00" GridPane.columnIndex="1">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                              <TextField fx:id="eventInfoTextField" promptText="Informacje" GridPane.columnIndex="2">
+                                 <GridPane.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </GridPane.margin>
+                              </TextField>
+                           </children>
+                        </GridPane>
+                        <Label fx:id="eventLabel" text="Nie podano wszystkich wartości." textFill="#bababa" visible="false" GridPane.columnIndex="1">
+                           <GridPane.margin>
+                              <Insets left="10.0" />
+                           </GridPane.margin>
+                        </Label>
+                        <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="50.0" mnemonicParsing="false" onAction="#addEvent" text="Dodaj" GridPane.columnIndex="2">
+                           <GridPane.margin>
+                              <Insets right="5.0" />
+                           </GridPane.margin>
+                        </Button>
+                     </children>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" />
+               </GridPane.margin>
+            </GridPane>
+            <Label text="Zarządzaj wydarzeniami" textFill="#bababa" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-               <children>
-                  <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="10.0" text="Dodaj" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="5.0" text="Importuj z pliku" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="50.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
-                  <Button id="mainButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="10.0" text="Wstecz" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="50.0" top="5.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
+            <Button id="mainButton" minWidth="70.0" mnemonicParsing="false" onAction="#showEventsWindow" text="Wstecz" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                <GridPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  <Insets right="10.0" />
                </GridPane.margin>
-            </HBox>
+            </Button>
          </children>
       </GridPane>
    </children>

@@ -13,6 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -32,6 +33,8 @@ public class Login {
     private TextField username;
     @FXML
     private PasswordField password;
+    @FXML
+    private GridPane loadGridPane;
 
     private Stage stage;
     private Scene scene;
@@ -49,24 +52,31 @@ public class Login {
     private void checkLogin()throws IOException{
         String userLogin = username.getText();
         String userPassword = password.getText();
-        boolean dbResult = DatabaseManager.checkLoginData(userLogin, userPassword);
-        if (dbResult){
+        if(userLogin.isEmpty() && userPassword.isEmpty()) {
+            wrongLogin.setText("Wpisz brakujące dane");
+            return;
+        }
+        int dbResult = DatabaseManager.checkLoginData(userLogin, userPassword);
+        if (dbResult != 0){
+            loadGridPane.setVisible(true);
             wrongLogin.setText("Poprawnie zalogowany!");
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mainPage.fxml"));
             root = loader.load();
-            //root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
             stage = (Stage) (button.getScene().getWindow());
-            stage.setMaximized(true);
             Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
             Scene scene = new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()-20);
-            MainPage mainPage = loader.getController();
-            mainPage.updateSubjects(userLogin, null);
+            stage.setMaximized(true);
             changeScene(root, stage, scene);
+            MainPage mainPage = loader.getController();
+            mainPage.setCurrentUserID(dbResult);
+            mainPage.updateSubjects(null);
+            mainPage.updateAllSubjects();
+            mainPage.createCalendar();
+            mainPage.changeLoginLabel(userLogin);
+            mainPage.editComboBoxes();
+            mainPage.addHandler(root);
 
 
-        }else if(userLogin.isEmpty() && userPassword.isEmpty()) {
-            wrongLogin.setText("Wpisz brakujące dane");
         }
         else{
             wrongLogin.setText("Nieprawidłowa nazwa użytkownika lub hasło!");
@@ -80,4 +90,5 @@ public class Login {
         //stage.setMaximized(true);
         stage.show();
     }
+
 }

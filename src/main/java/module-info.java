@@ -8,6 +8,7 @@ module com.example.login_page {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires com.calendarfx.view;
     //requires eu.hansolo.tilesfx;
 
     opens com.example.login_page to javafx.fxml;

@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
