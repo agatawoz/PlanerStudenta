@@ -234,7 +234,7 @@ public void changeDateLabel(LocalDate date){
         stage.setMaximized(false);
         Scene scene = new Scene(root, 800, 500);
         Login login = loader.getController();
-        login.changeScene(root, stage, scene);
+        login.changeScene(root, stage, scene, 'l');
     }
 
     boolean updateSubjects(LocalDate date){

@@ -23,7 +23,7 @@ public class Main extends Application {
         Scene loginScene = new Scene(root, 800, 500);
         stage.setTitle("Planer studenta");
         Login login = loader.getController();
-        login.changeScene(root, stage, loginScene);
+        login.changeScene(root, stage, loginScene, 'l');
     }
 
     public static void main(String[] args) {

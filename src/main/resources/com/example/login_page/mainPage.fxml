@@ -84,7 +84,7 @@
    <children>
       <ImageView fitHeight="1080.0" fitWidth="1920.0" pickOnBounds="true" style="-fx-opacity: 0.2;" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowSpan="2147483647" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
-            <Image url="@../../../../../../../../../../UZ/Projekt%20io/448303999_1450617165580436_2532191170332720778_n-TSngez4SN-transformed.jpeg" />
+            <Image url="@448303999_1450617165580436_2532191170332720778_n-TSngez4SN-transformed.jpeg" />
          </image>
       </ImageView>
       <Pane id="sectionBackground1" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnIndex="14" GridPane.columnSpan="8" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.rowSpan="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -338,7 +338,7 @@
             <Insets bottom="10.0" left="10.0" right="10.0" />
          </GridPane.margin>
       </GridPane>
-      <GridPane id="logoutBackground" fx:id="logoutGridPane" GridPane.columnIndex="27" GridPane.columnSpan="5" GridPane.rowIndex="4" GridPane.rowSpan="6">
+      <GridPane id="logoutBackground" fx:id="logoutGridPane" visible="false" GridPane.columnIndex="27" GridPane.columnSpan="5" GridPane.rowIndex="4" GridPane.rowSpan="6">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -539,13 +539,13 @@
                         </ScrollPane>
                      </children>
                   </VBox>
-                  <Button id="mainButton" fx:id="manageSubjectsButton" maxHeight="20.0" maxWidth="200.0" minHeight="30.0" mnemonicParsing="false" onAction="#showAllSubjectsSection" pickOnBounds="false" text="Zarządzaj przedmiotami" GridPane.columnSpan="9" GridPane.rowIndex="18" GridPane.rowSpan="2">
+                  <Button id="mainButton" fx:id="manageSubjectsButton" maxHeight="20.0" maxWidth="200.0" minHeight="30.0" mnemonicParsing="false" onAction="#showAllSubjectsSection" pickOnBounds="false" text="Zarządzaj przedmiotami" GridPane.columnSpan="9" GridPane.rowIndex="19" GridPane.rowSpan="2">
                      <GridPane.margin>
-                        <Insets top="5.0" />
+                        <Insets bottom="10.0" top="5.0" />
                      </GridPane.margin></Button>
-                  <Button id="mainButton" fx:id="manageEventsButton" maxHeight="20.0" maxWidth="200.0" minHeight="30.0" mnemonicParsing="false" onAction="#showEventsWindow" pickOnBounds="false" text="Zarządzaj wydarzeniami" GridPane.columnSpan="9" GridPane.rowIndex="20">
+                  <Button id="mainButton" fx:id="manageEventsButton" maxHeight="20.0" maxWidth="200.0" minHeight="30.0" mnemonicParsing="false" onAction="#showEventsWindow" pickOnBounds="false" text="Zarządzaj wydarzeniami" GridPane.columnSpan="9" GridPane.rowIndex="21">
                      <GridPane.margin>
-                        <Insets />
+                        <Insets bottom="10.0" />
                      </GridPane.margin>
                   </Button>
                   <StackPane id="sectionBackground2" fx:id="calendarSection" prefHeight="150.0" prefWidth="200.0" visible="false" GridPane.columnSpan="14" GridPane.rowSpan="20">
@@ -1147,7 +1147,7 @@
             </Button>
          </children>
       </GridPane>
-      <Pane id="calendarBackground" fx:id="eventsBackground" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#showEventsWindow" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647" />
+      <Pane id="calendarBackground" fx:id="eventsBackground" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#showEventsWindow" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.columnSpan="2147483647" GridPane.rowSpan="2147483647" />
       <GridPane id="sectionBackground1" fx:id="eventsWindow" visible="false" GridPane.columnIndex="7" GridPane.columnSpan="18" GridPane.rowIndex="5" GridPane.rowSpan="16">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

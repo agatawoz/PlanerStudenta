@@ -43,7 +43,7 @@
 
 #sectionBackground2{
     /*-fx-background-color: #606060;*/
-    -fx-background-color: linear-gradient(to bottom, rgba(235, 160, 182, 0.2) 0%, rgba(135, 77, 124, 0.2) 100%);
+    -fx-background-color: linear-gradient(to bottom, rgba(186, 125, 143, 0.2) 0%, rgba(171, 109, 159, 0.2) 100%);
     -fx-background-radius: 10px;
     -fx-border-color: rgba(255, 255, 255, 0.1);
     -fx-border-radius: 10px;
@@ -53,11 +53,12 @@
 
 #loadBackground{
     /*-fx-background-color: #555555;*/
-    -fx-background-color: rgba(121, 86, 121, 0.3);
-    -fx-background-radius: 20px;
-    -fx-border-color: rgba(255, 255, 255, 0.1);
-    -fx-border-radius: 20px;
+    -fx-background-color: rgba(56, 47, 56, 0.5);
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
     -fx-border-width: 4px;
+    -fx-text-fill: white;
+    /*-fx-font: "Candara";*/
 }
 
 #dayButton {
@@ -153,11 +154,11 @@
 
 #detailsButton{
     -fx-background-color: rgba(255, 255, 255, 0.1);
-    -fx-background-radius: 20px 20px 10px 10px;
+    -fx-background-radius: 20px;
     -fx-background-insets: 0px;
     -fx-text-fill: #bababa;
     -fx-border-color: rgba(255, 255, 255, 0.1);
-    -fx-border-radius: 20px 20px 10px 10px;
+    -fx-border-radius: 20px;
     -fx-border-width: 4px;
     -fx-effect: dropshadow(three-pass-box, rgba(22, 14, 20, 0.4), 1, 0, 0, 0);
 }
@@ -171,9 +172,9 @@
 #detailsBackground{
     /*-fx-background-color: #555555;*/
     -fx-background-color: rgba(217, 217, 217, 0.1);
-    -fx-background-radius: 10px 10px 20px 20px;
+    -fx-background-radius: 20px;
     -fx-border-color: rgba(255, 255, 255, 0.1);
-    -fx-border-radius: 10px 10px 20px 20px;
+    -fx-border-radius: 20px;
     -fx-border-width: 4px;
     -fx-effect: dropshadow(three-pass-box, rgba(22, 14, 20, 0.4), 1, 0, 0, 0);
 }
@@ -372,4 +373,57 @@
 #loginBackground{
     /*-fx-background-color: #444444;*/
     -fx-background-color: linear-gradient(to top, #0F0E16 5%, #c07895 40%, #3277c0 100%);
+}
+
+#signupButton{
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-text-fill: white;
+}
+
+#signupButton:hover{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-text-fill: black;
+}
+
+#signupButton:pressed{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+#modeButton{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+}
+
+#modeButton:hover{
+    -fx-text-fill: rgba(255, 255, 255, 0.8);
+}
+
+#loginFields{
+    -fx-background-color: rgba(211, 189, 205, 0.2);
+    -fx-border-color: rgba(105, 28, 86, 0.5);
+    -fx-border-radius: 5px;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+
+#loginButton{
+    -fx-background-color: rgba(105, 28, 86, 0.2);
+    -fx-background-radius: 10px;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-border-color: rgba(105, 28, 85, 0.25);
+    -fx-border-radius: 10px;
+    -fx-border-width: 1px;
+    -fx-text-fill: white;
+
 }

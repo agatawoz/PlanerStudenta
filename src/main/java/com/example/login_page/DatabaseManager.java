@@ -17,7 +17,7 @@ public  class DatabaseManager {
 
     static Connection connection;
 
-    static void createDBConnection (){
+    static void createDBConnection() {
         try {
             connection = DriverManager.getConnection(url, user, password);
             System.out.println("Connected to the database");
@@ -27,7 +27,7 @@ public  class DatabaseManager {
         }
     }
 
-    static int checkLoginData (String login, String password){
+    static int checkLoginData(String login, String password) {
         try {
             String query = "SELECT * FROM users WHERE login = ? AND password = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -36,13 +36,12 @@ public  class DatabaseManager {
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
             return resultSet.getInt("idusers");
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             return 0;
         }
     }
 
-    static void getSubjectsInfo(MainPage mainPage, int idusers, LocalDate date){
+    static void getSubjectsInfo(MainPage mainPage, int idusers, LocalDate date) {
         List<SubjectEvent> subjectsEvents = new ArrayList<>();
         try {
             String dayName = date.getDayOfWeek().name();
@@ -70,7 +69,7 @@ public  class DatabaseManager {
                     "FROM events e " +
                     "JOIN events_calendar_weekly ecw ON e.idevents = ecw.events_idevents " +
                     "WHERE e.users_idusers = ? AND ecw.event_day = ? ";
-                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, idusers);
             preparedStatement.setString(2, date.toString());
             preparedStatement.setInt(3, idusers);
@@ -90,10 +89,9 @@ public  class DatabaseManager {
                 LocalTime endTime;
                 String subjectType;
                 String place;
-                if (type == 's'){
+                if (type == 's') {
                     endTime = resultSet.getTime(4).toLocalTime();
-                }
-                else {
+                } else {
                     endTime = null;
                 }
                 subjectType = resultSet.getString(6);
@@ -103,8 +101,7 @@ public  class DatabaseManager {
                         subjectType, place);
                 subjectsEvents.add(subjectEvent);
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
@@ -115,7 +112,7 @@ public  class DatabaseManager {
     static void getInstructorInfo(MainPage mainPage, int currentUserID, int idsubjects) {
         try {
             String query = "SELECT s.name, i.name, i.mail, i.room, s.notes FROM instructors i " +
-                    "JOIN subjects s ON s.idsubjects = i.subjects_idsubjects "+
+                    "JOIN subjects s ON s.idsubjects = i.subjects_idsubjects " +
                     "WHERE i.subjects_users_idusers = ? AND i.subjects_idsubjects = ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, currentUserID);
@@ -127,16 +124,15 @@ public  class DatabaseManager {
             String mail = resultSet.getString(3);
             String room = resultSet.getString(4);
             String notes = resultSet.getString(5);
-            mainPage.updateInstructorInfo(subjectName,name, mail, room);
+            mainPage.updateInstructorInfo(subjectName, name, mail, room);
             mainPage.updateNotes(notes);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
     }
 
-    static void getGradesInfo(MainPage mainPage, String source, int currentUserID, int idsubjects){
+    static void getGradesInfo(MainPage mainPage, String source, int currentUserID, int idsubjects) {
         List<Grade> gradesList = new ArrayList<>();
         double average = 0;
         double allAverage = 0;
@@ -148,7 +144,7 @@ public  class DatabaseManager {
             preparedStatement.setInt(1, currentUserID);
             preparedStatement.setInt(2, idsubjects);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int dbID = resultSet.getInt(1);
                 String name = resultSet.getString(2);
                 double value = resultSet.getDouble(3);
@@ -174,17 +170,16 @@ public  class DatabaseManager {
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
             allAverage = resultSet.getDouble(1);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
         mainPage.updateGrades(gradesList, average, allAverage);
     }
 
-    static void getAllSubjectsInfo(MainPage mainPage, int currentUserID){
+    static void getAllSubjectsInfo(MainPage mainPage, int currentUserID) {
         List<SubjectEvent> allSubjects = new ArrayList<>();
-        try{
+        try {
             String query = "SELECT s.idsubjects, s.name, s.type, i.name " +
                     "FROM subjects s " +
                     "JOIN instructors i ON i.subjects_idsubjects = s.idsubjects " +
@@ -192,7 +187,7 @@ public  class DatabaseManager {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, currentUserID);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int subjectID = resultSet.getInt(1);
                 String name = resultSet.getString(2);
                 String subjectType = resultSet.getString(3);
@@ -201,15 +196,14 @@ public  class DatabaseManager {
                         name, null, subjectType, place);
                 allSubjects.add(subject);
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
         mainPage.showAllSubjectsInfo(allSubjects);
     }
 
-    static void getEditSubjectName(MainPage mainPage, int idsubjects, int currentUserID){
+    static void getEditSubjectName(MainPage mainPage, int idsubjects, int currentUserID) {
         try {
             String query = "SELECT s.name, i.name, s.type, i.mail, i.room " +
                     "FROM subjects s " +
@@ -222,7 +216,7 @@ public  class DatabaseManager {
             resultSet.next();
             String subjectName = resultSet.getString(1);
             String instructorName = resultSet.getString(2);
-            int type = switch(resultSet.getString(3).charAt(0)){
+            int type = switch (resultSet.getString(3).charAt(0)) {
                 case 'w' -> 0;
                 case 'l' -> 1;
                 case 'ć' -> 2;
@@ -232,8 +226,7 @@ public  class DatabaseManager {
             String mail = resultSet.getString(4);
             String room = resultSet.getString(5);
             mainPage.updateEditSubjectName(subjectName, instructorName, type, mail, room);
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
@@ -251,7 +244,7 @@ public  class DatabaseManager {
             preparedStatement.setInt(1, idsubjects);
             preparedStatement.setInt(2, currentUserID);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int subjectID = resultSet.getInt(1);
                 String day = resultSet.getString(2);
                 LocalTime startTime = resultSet.getTime(3).toLocalTime();
@@ -270,7 +263,7 @@ public  class DatabaseManager {
             preparedStatement.setInt(1, idsubjects);
             preparedStatement.setInt(2, currentUserID);
             resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int subjectID = resultSet.getInt(1);
                 String date = dateFormat.format(resultSet.getDate(2));
                 LocalTime startTime = resultSet.getTime(3).toLocalTime();
@@ -282,16 +275,15 @@ public  class DatabaseManager {
             }
             mainPage.updateEditSubjectDate(subjects);
 
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
     }
 
-    static void getEditSubjectGrades(MainPage mainPage, int idsubjects, int currentUserID){
+    static void getEditSubjectGrades(MainPage mainPage, int idsubjects, int currentUserID) {
         List<Grade> grades = new ArrayList<>();
-        try{
+        try {
             String query = "SELECT g.idgrades, g.name, g.grade " +
                     "FROM grades g " +
                     "WHERE g.subjects_idsubjects = ? AND g.subjects_users_idusers = ?";
@@ -299,23 +291,22 @@ public  class DatabaseManager {
             preparedStatement.setInt(1, idsubjects);
             preparedStatement.setInt(2, currentUserID);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 int dbID = resultSet.getInt(1);
                 String name = resultSet.getString(2);
                 double value = resultSet.getDouble(3);
                 Grade grade = new Grade(dbID, name, value);
                 grades.add(grade);
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
         mainPage.updateEditSubjectGrades(grades);
     }
 
-    static boolean updateNotes(int idsubjects, int currentUserID, String text){
-        try{
+    static boolean updateNotes(int idsubjects, int currentUserID, String text) {
+        try {
             String query = "UPDATE subjects " +
                     "SET notes = ? " +
                     "WHERE idsubjects = ? AND users_idusers = ?";
@@ -325,17 +316,16 @@ public  class DatabaseManager {
             preparedStatement.setInt(3, currentUserID);
             int rows = preparedStatement.executeUpdate();
             return rows != 0;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
             return false;
         }
     }
 
-    static void updateSubjectInfo(int idsubjects, int currentUserID, char type, String text){
-        if (type == 't'){
-            text = switch(text){
+    static void updateSubjectInfo(int idsubjects, int currentUserID, char type, String text) {
+        if (type == 't') {
+            text = switch (text) {
                 case "Wykład" -> "w";
                 case "Laboratorium" -> "l";
                 case "Ćwiczenia" -> "ć";
@@ -343,8 +333,8 @@ public  class DatabaseManager {
                 default -> "i";
             };
         }
-        try{
-            String query = switch (type){
+        try {
+            String query = switch (type) {
                 case 'n' -> "UPDATE subjects " +
                         "SET name = ? " +
                         "WHERE idsubjects = ? AND users_idusers = ?";
@@ -367,20 +357,19 @@ public  class DatabaseManager {
             preparedStatement.setInt(3, currentUserID);
             preparedStatement.executeUpdate();
 
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
         }
     }
 
     static boolean addSubjectDate(int currentUserID, int editSubjectID,
-                               String dayName, LocalDate date, LocalTime startTime,
-                               LocalTime endTime, String place){
-        try{
+                                  String dayName, LocalDate date, LocalTime startTime,
+                                  LocalTime endTime, String place) {
+        try {
             String query;
             PreparedStatement preparedStatement = null;
-            if (date == null){
+            if (date == null) {
                 query = "INSERT INTO subjects_calendar_weekly (subject_day, " +
                         "subject_starttime, subject_endtime, subject_place, " +
                         "subjects_idsubjects, subjects_users_idusers) " +
@@ -392,8 +381,7 @@ public  class DatabaseManager {
                 preparedStatement.setString(4, place);
                 preparedStatement.setInt(5, editSubjectID);
                 preparedStatement.setInt(6, currentUserID);
-            }
-            else {
+            } else {
                 query = "INSERT INTO subjects_calendar_daily (subject_date, " +
                         "subject_starttime, subject_endtime, subject_place, " +
                         "subjects_idsubjects, subjects_users_idusers) " +
@@ -407,17 +395,16 @@ public  class DatabaseManager {
                 preparedStatement.setInt(6, currentUserID);
             }
             int rows = preparedStatement.executeUpdate();
-            return rows!=0;
-        }
-        catch (SQLException | AssertionError e){
+            return rows != 0;
+        } catch (SQLException | AssertionError e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
             return false;
         }
     }
 
-    static boolean addGrade(int currendUserID, int editSubjectID, String gradeName, double value){
-        try{
+    static boolean addGrade(int currendUserID, int editSubjectID, String gradeName, double value) {
+        try {
             String query = "INSERT INTO grades (name, grade, " +
                     "subjects_idsubjects, subjects_users_idusers) " +
                     "VALUES (?, ?, ?, ?)";
@@ -427,7 +414,7 @@ public  class DatabaseManager {
             preparedStatement.setInt(3, editSubjectID);
             preparedStatement.setInt(4, currendUserID);
             int rows = preparedStatement.executeUpdate();
-            return rows!=0;
+            return rows != 0;
         } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
@@ -435,15 +422,15 @@ public  class DatabaseManager {
         }
     }
 
-    static boolean addSubject(int currentUserID, String name, String type){
-        type = switch(type){
+    static boolean addSubject(int currentUserID, String name, String type) {
+        type = switch (type) {
             case "Wykład" -> "w";
             case "Laboratorium" -> "l";
             case "Ćwiczenia" -> "ć";
             case "Projekt" -> "p";
             default -> "i";
         };
-        try{
+        try {
             String query = "INSERT INTO subjects(name, type, notes, users_idusers) " +
                     "VALUES (?, ?, '', ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
@@ -451,7 +438,7 @@ public  class DatabaseManager {
             preparedStatement.setString(2, type);
             preparedStatement.setInt(3, currentUserID);
             int rows = preparedStatement.executeUpdate();
-            if (rows!=0){
+            if (rows != 0) {
                 long id;
                 ResultSet resultSet = preparedStatement.getGeneratedKeys();
                 if (resultSet.next()) {
@@ -468,16 +455,15 @@ public  class DatabaseManager {
 
             }
             return false;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error while connecting to database");
             e.printStackTrace();
             return false;
         }
     }
 
-    static boolean deleteSubject(int subjectID){
-        try{
+    static boolean deleteSubject(int subjectID) {
+        try {
             String[] queries = new String[5];
             queries[0] = "DELETE FROM instructors WHERE subjects_idsubjects = ?";
             queries[1] = "DELETE FROM subjects_calendar_daily WHERE subjects_idsubjects = ?";
@@ -490,58 +476,55 @@ public  class DatabaseManager {
                 preparedStatement.executeUpdate();
             }
             return true;
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    static boolean deleteDate(String text, int dateID){
+    static boolean deleteDate(String text, int dateID) {
         int i;
         String tableToUse = null;
         String[] polishDaysOfWeek = {
                 "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota", "Niedziela"
         };
-        for (i=0; i<7; i++){
-            if (Objects.equals(text, polishDaysOfWeek[i])){
+        for (i = 0; i < 7; i++) {
+            if (Objects.equals(text, polishDaysOfWeek[i])) {
                 tableToUse = "subjects_calendar_weekly";
                 break;
             }
         }
-        if (tableToUse==null) tableToUse = "subjects_calendar_daily";
+        if (tableToUse == null) tableToUse = "subjects_calendar_daily";
 
-        try{
-            String query = "DELETE FROM "+tableToUse+" WHERE id"+tableToUse+" = ?";
+        try {
+            String query = "DELETE FROM " + tableToUse + " WHERE id" + tableToUse + " = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, dateID);
             int rows = preparedStatement.executeUpdate();
             return rows != 0;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    static boolean deleteGrade(int gradeID){
-        try{
+    static boolean deleteGrade(int gradeID) {
+        try {
             String query = "DELETE FROM grades WHERE idgrades = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, gradeID);
             int rows = preparedStatement.executeUpdate();
-            return rows!=0;
-        }
-        catch (SQLException e){
+            return rows != 0;
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    static void getEvents(MainPage mainPage, int currentUserID){
+    static void getEvents(MainPage mainPage, int currentUserID) {
         List<SubjectEvent> events = new ArrayList<>();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
-        try{
+        try {
             String query = "SELECT ew.events_idevents, ew.event_day, ew.event_time, e.info " +
                     "FROM events_calendar_weekly ew " +
                     "JOIN events e ON e.idevents = ew.events_idevents " +
@@ -549,13 +532,13 @@ public  class DatabaseManager {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, currentUserID);
             ResultSet resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 int eventID = resultSet.getInt(1);
                 String day = resultSet.getString(2);
                 LocalTime time = resultSet.getTime(3).toLocalTime();
                 String info = resultSet.getString(4);
                 SubjectEvent event = new SubjectEvent('w', eventID, time,
-                        day ,null, "i", info);
+                        day, null, "i", info);
                 events.add(event);
             }
 
@@ -566,23 +549,22 @@ public  class DatabaseManager {
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, currentUserID);
             resultSet = preparedStatement.executeQuery();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 int eventID = resultSet.getInt(1);
                 String date = dateFormat.format(resultSet.getDate(2));
                 LocalTime time = resultSet.getTime(3).toLocalTime();
                 String info = resultSet.getString(4);
                 SubjectEvent event = new SubjectEvent('d', eventID, time,
-                        date ,null, "i", info);
+                        date, null, "i", info);
                 events.add(event);
             }
             mainPage.updateEvents(events);
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    static boolean deleteEvent(int eventID, char type){
+    static boolean deleteEvent(int eventID, char type) {
         String table;
         if (type == 'w') table = "events_calendar_weekly";
         else table = "events_calendar_daily";
@@ -591,26 +573,25 @@ public  class DatabaseManager {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, eventID);
             int rows = preparedStatement.executeUpdate();
-            if (rows!=0){
+            if (rows != 0) {
                 query = "DELETE FROM events WHERE idevents = ?";
                 preparedStatement = connection.prepareStatement(query);
                 preparedStatement.setInt(1, eventID);
                 rows = preparedStatement.executeUpdate();
-                if (rows!=0){
+                if (rows != 0) {
                     return true;
                 }
             }
             return false;
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
     }
 
     static boolean addEvent(int currentUserID, String dayName, LocalDate date,
-                            LocalTime time, String info){
-        try{
+                            LocalTime time, String info) {
+        try {
             String query = "INSERT INTO events(name, info, users_idusers) " +
                     "VALUES ('?', ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query,
@@ -618,7 +599,7 @@ public  class DatabaseManager {
             preparedStatement.setString(1, info);
             preparedStatement.setInt(2, currentUserID);
             int rows = preparedStatement.executeUpdate();
-            if (rows!=0) {
+            if (rows != 0) {
                 ResultSet resultSet = preparedStatement.getGeneratedKeys();
                 while (resultSet.next()) {
                     int eventID = resultSet.getInt(1);
@@ -648,10 +629,34 @@ public  class DatabaseManager {
                 }
             }
             return false;
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
+        }
+    }
+
+    static int checkNew(String login, String password) {
+        try {
+            String query = "SELECT * FROM users WHERE login = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) return -1;
+
+            query = "INSERT INTO users (login, password) " +
+                    "VALUES (?, ?)";
+            preparedStatement = connection.prepareStatement(query,
+                    PreparedStatement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, login);
+            preparedStatement.setString(2, password);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+            return 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return 0;
         }
     }
 }
